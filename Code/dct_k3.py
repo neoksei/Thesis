@@ -161,6 +161,7 @@ class DCT():
         _, _, blue  = cv2.split(self.container)
         # Преобразуем матрицу в блоки ДКП
         blocks = self._to_dct(blue)
+        i = 0
         # Преобразуем сообщение в последовательность бит
         np_message = np.unpackbits(np.frombuffer(self.message, dtype=np.uint8)).ravel()
         for index, block in enumerate(blocks):
