@@ -32,17 +32,25 @@
 \tableofcontents
 
 % \printnomenclature % Автоматический список сокращений
-
+\include{Chapters/defines}
 \include{Chapters/intro}
+
 
 \mainmatter % это включает нумерацию глав и секций в документе ниже
 
 \include{Chapters/analysis}
 \include{Chapters/lsb.tex}
 \include{Chapters/dct.tex}
+\include{Chapters/steganalysis.tex}
+\include{Chapters/eco.tex}
 
 \backmatter %% Здесь заканчивается нумерованная часть документа и начинаются ссылки
+\include{Chapters/conclusion.tex}
+\bibliographystyle{ugost2008}
+\bibliography{rpz.bib}
+\nocite{*}
 
 \appendix   % Тут идут приложения
+\include{Chapters/appendix-A.tex}
 
 \end{document}

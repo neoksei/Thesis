@@ -1,6 +1,8 @@
-/*
-!/Code/*.py
-!/Picture/*
-!/Chapters/*.tex
-!/*.tex
-!/.gitignore
+*
+!*.py
+!/Pictures/**
+!*.tex
+!*.py
+!.gitignore
+!requirements.txt
+!*/
