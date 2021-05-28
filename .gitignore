@@ -1,5 +1,6 @@
 *
 !*.py
+!/Code/Images/**
 !/Pictures/**
 !*.tex
 !*.py
