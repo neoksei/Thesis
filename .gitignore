@@ -3,6 +3,7 @@
 !/Code/Images/**
 !/Pictures/**
 !*.tex
+!*.bib
 !*.py
 !.gitignore
 !requirements.txt

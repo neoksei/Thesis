@@ -1,11 +1,10 @@
+import numpy as np
 from abc import ABC, abstractmethod
 from bitarray import bitarray
 
-import numpy as np
-
 
 class LSB(ABC):
-    def __init__(self, container: np.array, message = None):
+    def __init__(self, container, message: bytes = None) -> None:
         """
         Возвращает простой lsb-кодер,
         принимает на вход контейнер и сообщение (массив байт).
@@ -16,16 +15,17 @@ class LSB(ABC):
         else:
             self.message = message
 
-        self.container = container
+        self._container = container
 
-    def encode(self):
+    def encode(self) -> None:
         """
-        Кодирует сообщение в контейнер
+        Кодирует сообщение в контейнер.
         """
         # Получаем последовательность элементов контейнера
         elements = self._to_elements()
         # Преобразуем сообщение к бинарному виду
-        np_message = np.unpackbits(np.frombuffer(self.message, dtype=np.uint8)).ravel()
+        np_message = np.unpackbits(np.frombuffer(
+            self.message, dtype=np.uint8)).ravel()
         n = len(np_message)
         # Меняем наименее значимый бит так,
         # чтобы он кодировал биты сообщения
@@ -33,9 +33,9 @@ class LSB(ABC):
         # Из элементов собираем контейнер обратно
         self._from_elements(elements)
 
-    def decode(self):
+    def decode(self) -> bytes:
         """
-        Декодирует сообщение из контейнера
+        Декодирует сообщение из контейнера.
         """
         # Получаем последовательность элементов контейнера
         elements = self._to_elements()
@@ -48,15 +48,15 @@ class LSB(ABC):
         return message
 
     @abstractmethod
-    def _to_elements(self):
+    def _to_elements(self) -> np.array:
         """
-        Преобразует контейнер в последовательность элементов
+        Преобразует контейнер в последовательность элементов.
         """
         pass
 
     @abstractmethod
-    def _from_elements(self, elements):
+    def _from_elements(self, elements: np.array) -> None:
         """
-        Собирает контейнер из элементов
+        Собирает контейнер из элементов.
         """
         pass

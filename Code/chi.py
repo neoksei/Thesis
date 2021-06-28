@@ -3,7 +3,11 @@ import jpegio as jio
 import scipy.stats
 import numpy as np
 
-def chi_attack(file_name: str):
+
+def chi_attack(file_name: str) -> None:
+    """
+    Реализует атаку хи-квадрат на JPEG файл. 
+    """
     # Считываем ДКП коэффициенты
     dct = jio.read(file_name)
     # Выбираем синий канал, в который спрятано сообщение.
@@ -23,8 +27,15 @@ def chi_attack(file_name: str):
     print(f"{p:.2}")
 
 
-if __name__ == "__main__":
+def main() -> None:
+    """
+    Проверяет работоспособность программы.
+    """
     # Пустой стегоконтейнер
     chi_attack("Images/Lenna.jpg")
     # Заполненный шумом стегоконтейнер
     chi_attack("Images/JSteg_Lenna.jpg")
+
+
+if __name__ == "__main__":
+    main()
