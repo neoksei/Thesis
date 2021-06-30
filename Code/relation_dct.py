@@ -8,7 +8,8 @@ class BMYY():
     Реализация метода Бенгама-Мемона-Эо-Юнга.
     """
 
-    def __init__(self, file_name: str, message: bytes = None, seed: int = 0) -> None:
+    def __init__(self, file_name: str, message: bytes = None,
+                 seed: int = 0) -> None:
         """
         Принимает на вход путь до файла с изображением file_path,
         байтовое сообщение message и попрождающий элемент seed,

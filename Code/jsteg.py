@@ -27,7 +27,7 @@ class JSteg(LSB):
         Возвращает репрезентацию контейнера
         как последовательности элементов.
         """
-        return self.container.ravel()[:]
+        return self._container.ravel()[:]
 
     def _from_elements(self, elements: np.array) -> None:
         """
