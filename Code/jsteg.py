@@ -69,7 +69,6 @@ def main() -> None:
     jsteg = JSteg("Images/JSteg_Lenna.jpg")
     # Декодируем сообщение.
     decoded = jsteg.decode()
-
     # Проверяем, что сообщения до и после совпадают.
     new_message = decoded[:size].decode()
     print(f"{new_message == message.decode()}")

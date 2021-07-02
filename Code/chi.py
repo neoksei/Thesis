@@ -1,4 +1,3 @@
-from enum import unique
 import jpegio as jio
 import scipy.stats
 import numpy as np

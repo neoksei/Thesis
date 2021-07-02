@@ -1,6 +1,5 @@
 import numpy as np
 from abc import ABC, abstractmethod
-from bitarray import bitarray
 
 
 class LSB(ABC):
@@ -12,6 +11,7 @@ class LSB(ABC):
         if message is None:
             # По умолчанию сообщение пустое
             self.message = []
+
         else:
             self.message = message
 

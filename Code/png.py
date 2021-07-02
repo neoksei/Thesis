@@ -63,7 +63,6 @@ def main() -> None:
     png = PNG("Images/LSB_Lenna.png")
     # Декодируем сообщение.
     decoded = png.decode()
-
     # Проверяем, что сообщения до и после совпадают.
     new_message = decoded[:size]
     print(f"{new_message == message}")

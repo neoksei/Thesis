@@ -24,6 +24,7 @@ class BMYY():
 
         if message is None:
             self.message = []
+
         else:
             self.message = message
 
@@ -75,6 +76,7 @@ class BMYY():
 
             if block[k1] == m:
                 block[k1] += self._P / 2
+
             else:
                 block[k2] += self._P / 2
 
@@ -87,6 +89,7 @@ class BMYY():
 
             if block[k1] == m:
                 block[k1] -= self._P / 2
+
             else:
                 block[k2] -= self._P / 2
 
@@ -100,7 +103,6 @@ class BMYY():
         """
         # С помощью ГПСЧ выбираем случайные элементы блока
         k1, k2, k3 = random.sample(self._stego_coef, 3)
-
         # Находим максимум разницы между третьим
         # и двумя остальными элементами
         M = max(block[k1], block[k2], block[k3])
@@ -216,14 +218,19 @@ def main() -> None:
     """
     Проверяет работоспособность алгоритма.
     """
+    # Переводим сообщение в байтовую форму
     message = ("Hello, stegoworld!").encode()
+    # Запоминаем размер бинарного сообщения
     size = len(message)
+    # Создаем кодер
     jpg = BMYY("Images/Lenna.jpg", message)
+    # Скрываем сообщение, запоминаем позиции
+    # блоков, в которые встроены биты
     positions = jpg.encode()
     jpg.save_as("Images/BMYY_Lenna.jpg")
     jpg = BMYY("Images/BMYY_Lenna.jpg")
     decoded = jpg.decode(positions)[:size]
-
+    # Убеждаемся, что метод работает
     print(decoded)
 
 
